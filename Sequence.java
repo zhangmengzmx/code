@@ -1,31 +1,56 @@
-package www.bit.java;
+package bitetech.ds;
 
-import java.util.Scanner;
+public interface Sequence {
+    /**
+     * 向线性表中添加元素
+     * @param data 要存储的元素
+     */
+    void add(Object data);
 
-public class Sequence {
-    public static void main(String[] args) {
-        Scanner in=new Scanner(System.in);
-        int n=in.nextInt();
-        System.out.println(SequenceCount(n));
-    }
-    public static long SequenceCount(int n){
-//        long result=0;
-//        for(int i=1;i<=n;i++){
-//            result+=i;
-//        }
-//        return result;
-        int middle;
-        int couple;
-        long result;
-        if(n%2==0){
-            couple=n/2;
-            result=couple*(1l+n);
-            return result;
-        }else{
-            middle=(n/2)+1;
-            couple=n/2;
-            result=couple*(1l+n)+middle;
-            return result;
-        }
-    }
+    /**
+     * 线性表中删除元素
+     * @param index 要删除的元素下标
+     * @return 是否删除成功
+     */
+    boolean remove(int index);
+
+    /**
+     * 在线性表中查找指定索引的元素
+     * @param index 要查找的索引
+     * @return
+     */
+    Object get(int index);
+
+    /**
+     * 判断线性表中是否有指定元素
+     * @param data 要查找的元素内容
+     * @return
+     */
+    boolean contains(Object data);
+
+    /**
+     * 修改线性表中指定索引的内容
+     * @param index 要修改的元素下标
+     * @param newData 修改后的内容
+     * @return
+     */
+    Object set(int index,Object newData);
+
+    /**
+     * 返回当前线性表元素个数
+     * @return
+     */
+    int size();
+
+    /**
+     * 直接清空线性表内容
+     */
+    void clear();
+
+    /**
+     * 将线性表转为数组
+     * @return
+     */
+    Object[] toArray();
 }
+
